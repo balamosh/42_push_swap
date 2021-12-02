@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2021/12/02 09:18:12 by sotherys         ###   ########.fr       */
+/*   Created: 2021/12/02 10:07:14 by sotherys          #+#    #+#             */
+/*   Updated: 2021/12/02 10:36:06 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	main(int ac, char **av)
+void	ft_stack_swap(t_stack *stack)
 {
-	t_stack	a;
-	t_snode	*elem;
-	size_t	i;
+	t_snode	*new_head;
 
-	if (ac == 1)
-		return (0);
-	a = (t_stack){.head = NULL, .tail = NULL, .size = 0};
-	i = ac - 1;
-	while (i > 0)
-		ft_stack_push_front(&a, ft_stack_new(ft_atoi(av[i--])));
-	elem = a.head;
-	while (elem)
+	if (stack->size == 2)
 	{
-		ft_putnbr_fd(elem->val, 1);
-		write(1, "\n", 1);
-		elem = elem->next;
+		stack->head->next = NULL;
+		stack->tail->prev = NULL;
+		new_head = stack->tail;
+		stack->tail = stack->head;
+		stack->head = new_head;
 	}
-	return (0);
+	else if (stack->size > 2)
+	{
+		new_head = stack->head->next;
+		stack->head->next = new_head->next;
+		stack->head->prev = new_head;
+		new_head->next = stack->head;
+		new_head->prev = NULL;
+		stack->head = new_head;
+	}
 }

@@ -5,10 +5,14 @@ HEAD_DIR	= includes/
 BUILD_DIR	= build/
 
 SRCS_FILES	= main.c						\
-			  stack.c						\
 			  libft/atoi.c					\
 			  libft/malloc.c				\
-			  libft/put_fd.c
+			  libft/put_fd.c				\
+			  stack/new.c					\
+			  stack/pop.c					\
+			  stack/push.c					\
+			  stack/rotate.c				\
+			  stack/swap.c					
 
 OBJS_FILES	= $(SRCS_FILES:.c=.o)
 

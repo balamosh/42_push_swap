@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2021/12/02 09:18:12 by sotherys         ###   ########.fr       */
+/*   Created: 2021/12/02 10:06:50 by sotherys          #+#    #+#             */
+/*   Updated: 2021/12/02 10:06:51 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	main(int ac, char **av)
+t_snode	*ft_stack_pop(t_stack *stack)
 {
-	t_stack	a;
 	t_snode	*elem;
-	size_t	i;
 
-	if (ac == 1)
-		return (0);
-	a = (t_stack){.head = NULL, .tail = NULL, .size = 0};
-	i = ac - 1;
-	while (i > 0)
-		ft_stack_push_front(&a, ft_stack_new(ft_atoi(av[i--])));
-	elem = a.head;
-	while (elem)
-	{
-		ft_putnbr_fd(elem->val, 1);
-		write(1, "\n", 1);
-		elem = elem->next;
-	}
-	return (0);
+	if (!stack->size)
+		return (NULL);
+	elem = stack->head;
+	elem->prev = NULL;
+	elem->next = NULL;
+	stack->head = NULL;
+	if (stack->size == 1)
+		stack->tail = NULL;
+	--stack->size;
+	return (elem);
 }
