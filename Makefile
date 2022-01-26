@@ -5,6 +5,7 @@ HEAD_DIR	= includes/
 BUILD_DIR	= build/
 
 SRCS_FILES	= main.c						\
+			  libft/atol.c					\
 			  libft/atoi.c					\
 			  libft/malloc.c				\
 			  libft/put_fd.c				\
@@ -21,7 +22,7 @@ OBJS		= $(addprefix $(BUILD_DIR), $(OBJS_FILES))
 DEPS		= $(OBJS:.o=.d)
 
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -MMD
+CFLAGS		= -Wall -Werror -Wextra -MMD -g
 
 all: $(NAME)
 

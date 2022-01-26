@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2021/12/02 11:35:43 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/26 10:03:19 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	ft_stack_print(t_stack *stack)
 
 int	main(int ac, char **av)
 {
+	for (int i = 1; i < ac; ++i) {
+		printf("%ld\n", ft_atol(av[i]));
+	}
+	return (0);
+	
 	t_stack	a;
 	char	c;
 	size_t	i;
