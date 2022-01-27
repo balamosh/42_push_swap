@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:21:23 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/26 10:30:13 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/27 22:57:48 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ typedef enum s_bool
 #  define ULONG_MAX ((unsigned long)(~0L))
 # endif
 
+void	*ft_memset(void *b, int c, size_t len);
 t_bool	ft_malloc(void **ptr, size_t n);
+t_bool	ft_calloc(void **ptr, size_t n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_atoi(const char *str);

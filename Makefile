@@ -5,9 +5,14 @@ HEAD_DIR	= includes/
 BUILD_DIR	= build/
 
 SRCS_FILES	= main.c						\
+			  hash/contains.c				\
+			  hash/hash.c					\
+			  hash/insert.c					\
+			  hash/resize.c					\
 			  libft/atol.c					\
 			  libft/atoi.c					\
 			  libft/malloc.c				\
+			  libft/memset.c				\
 			  libft/put_fd.c				\
 			  stack/new.c					\
 			  stack/pop.c					\

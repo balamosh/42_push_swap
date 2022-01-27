@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 03:24:21 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 22:59:48 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/27 23:43:16 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/27 23:56:10 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hash.h"
 
-t_bool	ft_malloc(void **ptr, size_t n)
+t_bool	ft_hash_resize(t_hash *hash)
 {
-	*ptr = malloc(n);
-	if (*ptr)
-		return (TRUE);
-	return (FALSE);
-}
-
-t_bool	ft_calloc(void **ptr, size_t n)
-{
-	if (!ft_malloc(ptr, n))
-		return (FALSE);
-	ft_memset(*ptr, 0, n);
+	(void)hash;
 	return (TRUE);
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   contains.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 03:24:21 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 22:59:48 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/27 23:44:14 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/27 23:55:03 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hash.h"
 
-t_bool	ft_malloc(void **ptr, size_t n)
+static t_bool	ft_bucket_search(t_bucket *head, int val)
 {
-	*ptr = malloc(n);
-	if (*ptr)
-		return (TRUE);
+	while (head)
+	{
+		if (head->val == val)
+			return (TRUE);
+		head = head->next;
+	}
 	return (FALSE);
 }
 
-t_bool	ft_calloc(void **ptr, size_t n)
+t_bool	ft_hash_contains(t_hash *hash, int val)
 {
-	if (!ft_malloc(ptr, n))
-		return (FALSE);
-	ft_memset(*ptr, 0, n);
-	return (TRUE);
+	return (ft_bucket_search(\
+			hash->buckets[ft_hash(val) % hash->n_buckets], \
+			val));
 }

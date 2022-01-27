@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   memset.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 03:24:21 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 22:59:48 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/27 22:56:54 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/27 22:56:55 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_malloc(void **ptr, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	*ptr = malloc(n);
-	if (*ptr)
-		return (TRUE);
-	return (FALSE);
-}
+	unsigned char	*ub;
+	size_t			i;
 
-t_bool	ft_calloc(void **ptr, size_t n)
-{
-	if (!ft_malloc(ptr, n))
-		return (FALSE);
-	ft_memset(*ptr, 0, n);
-	return (TRUE);
+	i = 0;
+	ub = (unsigned char *) b;
+	while (i < len)
+		ub[i++] = c;
+	return (b);
 }

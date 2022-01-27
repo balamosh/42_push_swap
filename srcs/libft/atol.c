@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:16:52 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/26 10:31:17 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/27 15:38:59 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_isdigit(int c)
 	return (0);
 }
 
-static long	ft_atol_return(int neg, unsigned long acc, int overflow)
+static long	ft_atol_return(t_bool neg, unsigned long acc, int overflow)
 {
 	if (overflow)
 	{
@@ -48,6 +48,20 @@ static long	ft_atol_return(int neg, unsigned long acc, int overflow)
 	else if (neg)
 		acc = -acc;
 	return (acc);
+}
+
+static void	ft_atol_init(t_bool neg, \
+						unsigned long *cutoff, \
+						int *cutlim, \
+						unsigned long *acc)
+{
+	if (neg)
+		*cutoff = -(unsigned long)((long)(~(ULONG_MAX >> 1)));
+	else
+		*cutoff = (ULONG_MAX >> 1);
+	*cutlim = *cutoff % 10;
+	*cutoff /= 10;
+	*acc = 0;
 }
 
 long	ft_atol(const char *str)
@@ -67,13 +81,7 @@ long	ft_atol(const char *str)
 			neg = TRUE;
 		++str;
 	}
-	if (neg)
-		cutoff = -(unsigned long)((long)(~(ULONG_MAX >> 1)));
-	else
-		cutoff = (ULONG_MAX >> 1);
-	cutlim = cutoff % 10;
-	cutoff /= 10;
-	acc = 0;
+	ft_atol_init(neg, &cutoff, &cutlim, &acc);
 	while (ft_isdigit(*str))
 	{
 		c = *str++ - '0';

@@ -6,11 +6,12 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/26 10:03:19 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/27 23:53:07 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+#include "hash.h"
 #include <stdio.h>
 
 void	ft_stack_print(t_stack *stack)
@@ -29,9 +30,21 @@ void	ft_stack_print(t_stack *stack)
 
 int	main(int ac, char **av)
 {
+	t_hash	hash;
+	ft_hash_init(&hash);
 	for (int i = 1; i < ac; ++i) {
-		printf("%ld\n", ft_atol(av[i]));
+		ft_hash_insert(&hash, ft_atol(av[i]));
 	}
+	while (TRUE)
+	{
+		int	n;
+		scanf("%d", &n);
+		if (ft_hash_contains(&hash, n))
+			printf("TRUE\n");
+		else
+			printf("FALSE\n");
+	}
+	
 	return (0);
 	
 	t_stack	a;
