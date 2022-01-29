@@ -6,18 +6,23 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 23:00:12 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 23:44:00 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:16:00 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hash.h"
 
-t_bool	ft_hash_init(t_hash *hash)
+t_bool	ft_hash_init_size(t_hash *hash, size_t n)
 {
 	hash->size = 0;
-	hash->n_buckets = 4;
+	hash->n_buckets = n;
 	return (ft_calloc((void **)&hash->buckets, \
 			sizeof(t_bucket *) * hash->n_buckets));
+}
+
+t_bool	ft_hash_init(t_hash *hash)
+{
+	return (ft_hash_init_size(hash, 4));
 }
 
 static void	ft_bucket_free(t_bucket *head)

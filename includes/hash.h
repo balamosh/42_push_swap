@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 23:00:26 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 23:31:59 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:16:28 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void			ft_hash_free(t_hash *hash);
 
 unsigned int	ft_hash(unsigned int val);
 t_bool			ft_hash_resize(t_hash *hash);
+t_bool			ft_hash_init_size(t_hash *hash, size_t n);
 
 #endif

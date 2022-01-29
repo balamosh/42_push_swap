@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:21:31 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/29 20:10:27 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/29 21:13:29 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-int	main(int ac, char **av)
+t_bool	ft_ps_parse(t_ps *tab, int ac, char **av)
 {
-	t_ps	tab;
+	t_hash	set;
+	int		i;
+	long	n;
 
-	ft_ps_init(&tab);
-	if (!ft_ps_parse(&tab, ac - 1, av + 1))
-		printf("Error\n");
-	return (0);
+	ft_hash_init(&set);
+	i = 0;
+	while (i < ac)
+	{
+		n = ft_atol(av[i++]);
+		if (n > INT_MAX || n < INT_MIN || ft_hash_contains(&set, n))
+			return (!ft_stack_free(&tab->a));
+		if (!(ft_hash_insert(&set, n) && ft_stack_push_back(&tab->a, n)))
+			return (!ft_stack_free(&tab->a));
+	}
+	ft_hash_free(&set);
+	return (TRUE);
 }

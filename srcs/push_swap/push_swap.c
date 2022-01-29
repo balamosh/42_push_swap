@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new.c                                              :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 10:05:39 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:16:42 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/29 21:36:33 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 
-t_snode	*ft_stack_new(int val)
+void	ft_ps_init(t_ps *tab)
 {
-	t_snode	*new;
+	ft_stack_init(&tab->a);
+	ft_stack_init(&tab->b);
+}
 
-	if (!ft_malloc((void *)&new, sizeof(t_snode)))
-		return (NULL);
-	new->val = val;
-	new->keep = FALSE;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+void	ft_ps_free(t_ps *tab)
+{
+	ft_stack_free(&tab->a);
+	ft_stack_free(&tab->b);
 }

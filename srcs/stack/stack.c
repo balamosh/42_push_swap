@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new.c                                              :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/02 10:05:39 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:16:42 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/29 21:36:37 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/29 21:36:37 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_snode	*ft_stack_new(int val)
+void	ft_stack_init(t_stack *stack)
 {
-	t_snode	*new;
+	stack->head = NULL;
+	stack->tail = NULL;
+	stack->size = 0;
+}
 
-	if (!ft_malloc((void *)&new, sizeof(t_snode)))
-		return (NULL);
-	new->val = val;
-	new->keep = FALSE;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+t_bool	ft_stack_free(t_stack *stack)
+{
+	t_snode	*tmp;
+
+	while (stack->head)
+	{
+		tmp = stack->head->next;
+		free(stack->head);
+		stack->head = tmp;
+	}
+	return (TRUE);
 }

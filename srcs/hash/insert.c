@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 23:15:10 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 23:55:56 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/29 17:57:41 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_bool	ft_hash_insert(t_hash *hash, int val)
 			val);
 	if (!flag)
 		return (FALSE);
-	if ((double) hash->n_buckets / ++hash->size > HASH_LOAD_FACTOR)
+	if ((double)++hash->size / hash->n_buckets > HASH_LOAD_FACTOR)
 		return (ft_hash_resize(hash));
 	return (TRUE);
 }

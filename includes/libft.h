@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:21:23 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/27 22:57:48 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/29 19:54:25 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef enum s_bool
 
 # ifndef ULONG_MAX
 #  define ULONG_MAX ((unsigned long)(~0L))
+# endif
+# ifndef INT_MAX
+#  define INT_MAX +2147483647
+# endif
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
 # endif
 
 void	*ft_memset(void *b, int c, size_t len);
