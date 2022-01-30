@@ -16,6 +16,7 @@ SRCS_FILES	= main.c						\
 			  libft/put_fd.c				\
 			  push_swap/parse.c				\
 			  push_swap/push_swap.c			\
+			  push_swap/set_index.c			\
 			  stack/new.c					\
 			  stack/pop.c					\
 			  stack/push.c					\

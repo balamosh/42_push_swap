@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:05:39 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:16:42 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:23:22 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_snode	*ft_stack_new(int val)
 	if (!ft_malloc((void *)&new, sizeof(t_snode)))
 		return (NULL);
 	new->val = val;
+	new->index = -1;
 	new->keep = FALSE;
 	new->prev = NULL;
 	new->next = NULL;

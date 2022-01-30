@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:21:31 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/30 20:03:56 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	main(int ac, char **av)
 	ft_ps_init(&tab);
 	if (!ft_ps_parse(&tab, ac - 1, av + 1))
 		printf("Error\n");
+	ft_ps_set_index(&tab.a);
 	return (0);
 }

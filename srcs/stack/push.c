@@ -6,17 +6,14 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 10:06:08 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:07:35 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/30 17:58:15 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_bool	ft_stack_push_front(t_stack *stack, int val)
+t_bool	ft_stack_push_front(t_stack *stack, t_snode *elem)
 {
-	t_snode	*elem;
-
-	elem = ft_stack_new(val);
 	if (!elem)
 		return (FALSE);
 	if (!stack->size)
@@ -34,11 +31,8 @@ t_bool	ft_stack_push_front(t_stack *stack, int val)
 	return (TRUE);
 }
 
-t_bool	ft_stack_push_back(t_stack *stack, int val)
+t_bool	ft_stack_push_back(t_stack *stack, t_snode *elem)
 {
-	t_snode	*elem;
-
-	elem = ft_stack_new(val);
 	if (!elem)
 		return (FALSE);
 	if (!stack->size)

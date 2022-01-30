@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   set_index.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 20:10:27 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/30 18:29:10 by sotherys         ###   ########.fr       */
+/*   Created: 2022/01/30 20:02:20 by sotherys          #+#    #+#             */
+/*   Updated: 2022/01/30 20:23:59 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool	ft_ps_parse(t_ps *tab, int ac, char **av)
+void	ft_ps_set_index(t_stack *stack)
 {
-	t_bool	flag;
-	t_hash	set;
-	int		i;
-	long	n;
+	t_snode	*node;
+	t_snode	*min;
+	size_t	i;
 
-	ft_hash_init(&set);
 	i = 0;
-	flag = TRUE;
-	while (i < ac && flag)
+	while (i < stack->size)
 	{
-		n = ft_atol(av[i++]);
-		flag = (n <= INT_MAX && n >= INT_MIN && !ft_hash_contains(&set, n) && \
-				ft_hash_insert(&set, n) && \
-				ft_stack_push_back(&tab->a, ft_stack_new(n)));
+		min = stack->head;
+		node = stack->head->next;
+		while (node)
+		{
+			if (node->val < min->val && node->index == -1)
+				min = node;
+			node = node->next;
+		}
+		min->index = i++;
 	}
-	ft_hash_free(&set);
-	if (!flag)
-		ft_stack_free(&tab->a);
-	return (flag);
 }
