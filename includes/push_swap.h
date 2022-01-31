@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/30 20:03:35 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/31 10:01:15 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,14 @@ void	ft_ps_init(t_ps *tab);
 void	ft_ps_free(t_ps *tab);
 t_bool	ft_ps_parse(t_ps *tab, int ac, char **av);
 void	ft_ps_set_index(t_stack *stack);
+t_snode	*ft_ps_mfind(t_stack *stack, t_bool (*cmp)(t_snode*, t_snode *));
+size_t	ft_ps_mcount(t_stack *stack, \
+						t_snode *m, \
+						t_bool (*cmp)(t_snode*, t_snode *));
+void	ft_ps_mupdate(t_stack *stack, \
+						t_snode *m, \
+						t_bool (*cmp)(t_snode*, t_snode *));
+t_bool	ft_ps_cmp_id(t_snode *lhs, t_snode *rhs);
+t_bool	ft_ps_cmp_gt(t_snode *lhs, t_snode *rhs);
 
 #endif

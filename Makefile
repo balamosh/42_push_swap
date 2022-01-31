@@ -14,6 +14,7 @@ SRCS_FILES	= main.c						\
 			  libft/malloc.c				\
 			  libft/memset.c				\
 			  libft/put_fd.c				\
+			  push_swap/markup.c			\
 			  push_swap/parse.c				\
 			  push_swap/push_swap.c			\
 			  push_swap/set_index.c			\

@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:34:40 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/30 20:12:03 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/01/31 07:39:37 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack
 
 void	ft_stack_init(t_stack *stack);
 void	ft_stack_free(t_stack *stack);
+t_snode	*ft_stack_next(t_stack *stack, t_snode *node);
 t_snode	*ft_stack_new(int val);
 t_bool	ft_stack_push_front(t_stack *stack, t_snode *elem);
 t_bool	ft_stack_push_back(t_stack *stack, t_snode *elem);
