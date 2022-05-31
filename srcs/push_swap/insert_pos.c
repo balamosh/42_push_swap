@@ -23,8 +23,7 @@ size_t	ft_ps_insert_pos(t_stack *stack, int val)
 	i = 0;
 	while (curr)
 	{
-		if (ft_stack_prev(stack, curr)->val < val \
-		&& ft_stack_next(stack, curr)->val > val)
+		if (curr->val < val && ft_stack_next(stack, curr)->val > val)
 			return (i);
 		curr = curr->next;
 		++i;
