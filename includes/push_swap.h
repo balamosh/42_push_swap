@@ -20,6 +20,7 @@ typedef struct s_ps
 {
 	t_stack	a;
 	t_stack	b;
+	void	(*exec[11])(struct s_ps *);
 }				t_ps;
 
 typedef enum s_ps_cmd
@@ -64,5 +65,7 @@ void    ft_exec_rr(t_ps *tab);
 void    ft_exec_rra(t_ps *tab);
 void    ft_exec_rrb(t_ps *tab);
 void    ft_exec_rrr(t_ps *tab);
+
+void	ft_exec(t_ps *tab, t_ps_cmd cmd, t_bool real);
 
 #endif

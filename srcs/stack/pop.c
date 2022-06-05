@@ -19,11 +19,13 @@ t_snode	*ft_stack_pop(t_stack *stack)
 	if (!stack->size)
 		return (NULL);
 	elem = stack->head;
+	stack->head = elem->next;
+	--stack->size;
+	if (stack->size)
+		stack->head->prev = NULL;
+	else
+		stack->tail = NULL;
 	elem->prev = NULL;
 	elem->next = NULL;
-	stack->head = NULL;
-	if (stack->size == 1)
-		stack->tail = NULL;
-	--stack->size;
 	return (elem);
 }
