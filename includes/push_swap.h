@@ -20,6 +20,9 @@ typedef struct s_ps
 {
 	t_stack	a;
 	t_stack	b;
+	int		ia;
+	int		ib;
+	int		min_ops;
 	void	(*exec[11])(struct s_ps *);
 }				t_ps;
 

@@ -9,10 +9,13 @@ SRCS_FILES	= main.c						\
 			  hash/hash.c					\
 			  hash/insert.c					\
 			  hash/resize.c					\
+			  libft/abs.c					\
 			  libft/atol.c					\
 			  libft/atoi.c					\
 			  libft/malloc.c				\
+			  libft/max.c					\
 			  libft/memset.c				\
+			  libft/min.c					\
 			  libft/put_fd.c				\
 			  push_swap/exec_ps.c			\
 			  push_swap/exec_r.c			\

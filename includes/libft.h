@@ -39,5 +39,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
+int		ft_abs(int x);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
 
 #endif
