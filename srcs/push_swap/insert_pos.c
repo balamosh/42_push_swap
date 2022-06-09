@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 23:40:04 by sotherys          #+#    #+#             */
-/*   Updated: 2022/03/31 00:10:45 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:50:46 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ size_t	ft_stack_index(t_stack *stack, t_snode *node)
 	return (i);
 }
 
-size_t	ft_ps_insert_pos_edges(t_stack *stack, int val, t_snode *min, t_snode *max)
+size_t	ft_ps_insert_pos_edges(t_stack *stack, \
+								int val, \
+								t_snode *min, \
+								t_snode *max)
 {
 	if (val < min->val)
 		return (ft_stack_index(stack, min));
