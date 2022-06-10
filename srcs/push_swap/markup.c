@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   markup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 05:49:18 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 12:36:55 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:10:15 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_ps_mupdate(t_stack *stack, \
 
 	curr = ft_stack_next(stack, m);
 	new_m = m;
+	m->keep = TRUE;
 	while (curr != m)
 	{
 		if (cmp(curr, new_m))
@@ -86,12 +87,14 @@ void	ft_ps_markup(t_ps *tab, t_bool (*cmp)(t_snode*, t_snode *))
 	size_t	cnt;
 
 	m = ft_ps_mfind(&tab->a, cmp);
-	cnt = ft_ps_mcount(&tab->a, m, cmp);
+	tab->keep_cnt = ft_ps_mcount(&tab->a, m, cmp);
 	ft_exec(tab, SA, 1, FALSE);
-	if (ft_ps_mcount(&tab->a, m, cmp) > cnt)
+	cnt = ft_ps_mcount(&tab->a, m, cmp);
+	if (cnt > tab->keep_cnt)
 	{
-		ft_exec(tab, SA, 1, FALSE);
 		ft_exec(tab, SA, 1, TRUE);
+		tab->keep_cnt = cnt;
 	}
+	ft_exec(tab, SA, 1, FALSE);
 	ft_ps_mupdate(&tab->a, m, cmp);
 }

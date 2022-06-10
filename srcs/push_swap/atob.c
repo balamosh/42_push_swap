@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atob.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 12:31:43 by balamosh          #+#    #+#             */
-/*   Updated: 2022/06/10 12:41:03 by balamosh         ###   ########.fr       */
+/*   Created: 2022/06/10 15:09:13 by sotherys          #+#    #+#             */
+/*   Updated: 2022/06/10 15:09:15 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_ps_atob(t_ps *tab)
 	int	old_tail;
 
 	old_tail = tab->a.tail->val;
-	while (tab->a.head->val != old_tail)
+	while ((tab->a.head->val != old_tail) && (tab->keep_cnt < tab->a.size))
 	{
 		if (!tab->a.head->keep)
 			ft_exec(tab, PB, 1, TRUE);

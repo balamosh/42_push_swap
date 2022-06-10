@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 12:38:12 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 16:57:57 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 
 # include "stack.h"
 # include "hash.h"
-
-typedef struct s_ps
-{
-	t_stack	a;
-	t_stack	b;
-	long	ia;
-	long	ib;
-	long	min_ops;
-	long	co_dir;
-	void	(*exec[11])(struct s_ps *);
-}				t_ps;
 
 typedef enum s_ps_cmd
 {
@@ -41,6 +30,20 @@ typedef enum s_ps_cmd
 	RRB,
 	RRR
 }			t_ps_cmd;
+
+typedef struct s_ps
+{
+	t_stack	a;
+	t_stack	b;
+	t_stack	cmds;
+	t_bool	error;
+	size_t	keep_cnt;
+	long	ia;
+	long	ib;
+	long	min_ops;
+	long	co_dir;
+	void	(*exec[11])(struct s_ps *);
+}				t_ps;
 
 void	ft_ps_init(t_ps *tab);
 void	ft_ps_free(t_ps *tab);
@@ -76,5 +79,8 @@ void	ft_ps_markup(t_ps *tab, t_bool (*cmp)(t_snode*, t_snode *));
 void	ft_ps_atob(t_ps *tab);
 void	ft_ps_btoa(t_ps *tab);
 void	ft_ps_allign(t_ps *tab);
+void	ft_ps_print_cmds(t_ps *tab);
+
+void	ft_push_swap(t_ps *tab, int ac, char **av, t_bool (*mode)(t_snode*, t_snode *));
 
 #endif

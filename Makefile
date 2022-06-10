@@ -24,6 +24,7 @@ SRCS_FILES	= main.c						\
 			  push_swap/exec_ps.c			\
 			  push_swap/exec_r.c			\
 			  push_swap/exec_rr.c			\
+			  push_swap/exec.c				\
 			  push_swap/insert_pos.c		\
 			  push_swap/markup_mode.c		\
 			  push_swap/markup.c			\

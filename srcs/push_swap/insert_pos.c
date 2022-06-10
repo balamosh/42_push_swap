@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   insert_pos.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 23:40:04 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/09 18:50:46 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:09:57 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t	ft_ps_insert_pos(t_stack *stack, int val)
 	t_snode	*max;
 	size_t	i;
 
-	if (stack->size < 3)
+	if (!stack->size)
 		return (0);
 	curr = stack->head;
 	min = curr;

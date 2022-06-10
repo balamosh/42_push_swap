@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 11:58:06 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:23:31 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	ft_ps_exec_init(t_ps *tab)
 
 void	ft_ps_init(t_ps *tab)
 {
+	tab->error = FALSE;
+	ft_stack_init(&tab->cmds);
 	ft_stack_init(&tab->a);
 	ft_stack_init(&tab->b);
 	ft_ps_exec_init(tab);
@@ -40,20 +42,32 @@ void	ft_ps_free(t_ps *tab)
 	ft_stack_free(&tab->b);
 }
 
-#include <stdio.h>
-
-void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real)
+void	ft_ps_print_cmds(t_ps *tab)
 {
+	t_snode		*curr;
 	static char	*cmds[11] = \
 	{"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
-	long		i;
 
-	i = 0;
-	while (i < n)
+	curr = tab->cmds.head;
+	while (curr)
 	{
-		tab->exec[cmd](tab);
-		if (real)
-			printf("%s\n", cmds[cmd]);
-		++i;
+		ft_putstr_fd(cmds[curr->val], 1);
+		ft_putchar_fd('\n', 1);
+		curr = curr->next;
 	}
+}
+
+void	ft_push_swap(t_ps *tab, \
+						int ac, \
+						char **av, \
+						t_bool (*mode)(t_snode*, t_snode *))
+{
+	ft_ps_init(tab);
+	if (!ft_ps_parse(tab, ac - 1, av + 1))
+		tab->error = TRUE;
+	ft_ps_set_index(&tab->a);
+	ft_ps_markup(tab, mode);
+	ft_ps_atob(tab);
+	ft_ps_btoa(tab);
+	ft_ps_allign(tab);
 }

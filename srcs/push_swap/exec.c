@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   abs.c                                              :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 15:08:11 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 15:08:14 by sotherys         ###   ########.fr       */
+/*   Created: 2022/06/10 15:36:37 by sotherys          #+#    #+#             */
+/*   Updated: 2022/06/10 16:49:55 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_abs(long x)
+#include "push_swap.h"
+
+void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real)
 {
-	if (x > 0)
-		return (x);
-	return (-x);
+	long	i;
+
+	i = 0;
+	while (i < n)
+	{
+		tab->exec[cmd](tab);
+		if (real)
+			ft_stack_push_back(&tab->cmds, ft_stack_new(cmd));
+		++i;
+	}
 }

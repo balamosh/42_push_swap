@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 12:38:32 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:22:24 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,19 @@ void	ft_ps_test_print(t_ps *tab)
 
 int	main(int ac, char **av)
 {
-	t_ps	tab;
+	t_ps	tab_gt;
+	t_ps	tab_id;
 
-	ft_ps_init(&tab);
-	if (!ft_ps_parse(&tab, ac - 1, av + 1))
-		printf("Error\n");
-	
-	ft_ps_test_print(&tab);
-	
-	ft_ps_set_index(&tab.a);
-	ft_ps_markup(&tab, ft_ps_cmp_id);
-	ft_ps_atob(&tab);
-	ft_ps_btoa(&tab);
-	ft_ps_allign(&tab);
-	
-	ft_ps_test_print(&tab);
-
-	//printf("pos = %zu\n", ft_ps_insert_pos(&tab.a, 6));
+	ft_push_swap(&tab_gt, ac, av, ft_ps_cmp_gt);
+	ft_push_swap(&tab_id, ac, av, ft_ps_cmp_id);
+	if (tab_gt.error || tab_id.error)
+		ft_putstr_fd("Error\n", 2);
+	else if (tab_gt.cmds.size < tab_id.cmds.size)
+		ft_ps_print_cmds(&tab_gt);
+	else
+		ft_ps_print_cmds(&tab_id);
+	//ft_ps_test_print(&tab_gt);
+	//ft_ps_test_print(&tab_id);
 	return (0);
 }
 
@@ -80,4 +76,8 @@ rrr
 rra
 pa
 pa
+*/
+
+/*
+ARG=`shuf -i 0-2147483647 -n 500 | tr '\n' ' '`; ./push_swap $ARG | wc -l
 */
