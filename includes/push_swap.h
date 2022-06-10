@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/03/31 00:02:31 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 03:06:13 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ typedef struct s_ps
 {
 	t_stack	a;
 	t_stack	b;
-	int		ia;
-	int		ib;
-	int		min_ops;
+	long	ia;
+	long	ib;
+	long	min_ops;
+	long	co_dir;
 	void	(*exec[11])(struct s_ps *);
 }				t_ps;
 
@@ -69,6 +70,6 @@ void    ft_exec_rra(t_ps *tab);
 void    ft_exec_rrb(t_ps *tab);
 void    ft_exec_rrr(t_ps *tab);
 
-void	ft_exec(t_ps *tab, t_ps_cmd cmd, t_bool real);
+void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real);
 
 #endif

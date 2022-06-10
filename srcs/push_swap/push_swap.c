@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 21:36:33 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 03:03:32 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,21 @@ void	ft_ps_free(t_ps *tab)
 	ft_stack_free(&tab->b);
 }
 
-void	ft_exec(t_ps *tab, t_ps_cmd cmd, t_bool real)
+#include <stdio.h>
+
+void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real)
 {
+	static char	*cmds[11] = \
+	{"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+	long		i;
+
 	(void)real;
-	tab->exec[cmd](tab);
+
+	i = 0;
+	while (i < n)
+	{
+		tab->exec[cmd](tab);
+		printf("%s\n", cmds[cmd]);
+		++i;
+	}
 }

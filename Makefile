@@ -11,6 +11,7 @@ SRCS_FILES	= main.c						\
 			  hash/resize.c					\
 			  libft/abs.c					\
 			  libft/atol.c					\
+			  libft/lsign.c					\
 			  libft/atoi.c					\
 			  libft/malloc.c				\
 			  libft/max.c					\

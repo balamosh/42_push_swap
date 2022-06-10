@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/03/31 00:04:41 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 03:24:41 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_ps_test_print(t_ps *tab)
 
 	curr_a = tab->a.head;
 	curr_b = tab->b.head;
+	printf("\n");
 	while (curr_a || curr_b)
 	{
 		if (curr_a)
@@ -52,34 +53,40 @@ void	ft_ps_atob(t_ps *tab)
 	while(tab->a.head->val != old_tail)
 	{
 		if(!tab->a.head->keep)
-			ft_exec(tab, PB, TRUE);
+			ft_exec(tab, PB, 1, TRUE);
 		else
-			ft_exec(tab, RA, TRUE);
+			ft_exec(tab, RA, 1, TRUE);
 	}
 	if(!tab->a.head->keep)
-		ft_exec(tab, PB, TRUE);
+		ft_exec(tab, PB, 1, TRUE);
 }
 
-void	ft_ps_btoa_update(t_ps *tab, int ia, int ib)
+void	ft_ps_btoa_update(t_ps *tab, long ia, long ib)
 {
-	int		min_ops;
+	long	min_ops;
+	long	co_dir;
 
+	co_dir = 0;
 	if ((ia * ib) >= 0)
+	{
 		min_ops = ft_max(ft_abs(ia), ft_abs(ib));
+		co_dir = ft_lsign(ia) * ft_min(ft_abs(ia), ft_abs(ib));
+	}
 	else
 		min_ops = ft_abs(ia) + ft_abs(ib);
 	if (min_ops <= tab->min_ops)
 	{
 		tab->min_ops = min_ops;
-		tab->ia = ia;
-		tab->ib = ib;
+		tab->co_dir = co_dir;
+		tab->ia = ia - co_dir;
+		tab->ib = ib - co_dir;
 	}
 }
 
 void	ft_ps_btoa_find(t_ps *tab)
 {
-	int		ia;
-	int		ib;
+	long	ia;
+	long	ib;
 	t_snode	*curr;
 
 	ib = 0;
@@ -99,30 +106,45 @@ void	ft_ps_btoa_find(t_ps *tab)
 
 void	ft_ps_btoa(t_ps *tab)
 {
-	int	i;
-
 	while (tab->b.size > 0)
 	{
 		ft_ps_btoa_find(tab);
-		i = 0;
-		while (i++ < ft_abs(tab->ia))
-		{
-			if (tab->ia < 0)
-				ft_exec(tab, RRA, TRUE);
-			else
-				ft_exec(tab, RA, TRUE);
-		}
-		i = 0;
-		while (i++ < ft_abs(tab->ib))
-		{
-			if (tab->ib < 0)
-				ft_exec(tab, RRB, TRUE);
-			else
-				ft_exec(tab, RB, TRUE);
-		}
-		ft_exec(tab, PA, TRUE);
-		ft_ps_test_print(tab);
+		if (tab->co_dir < 0)
+			ft_exec(tab, RRR, -tab->co_dir, TRUE);
+		else
+			ft_exec(tab, RR, tab->co_dir, TRUE);
+		if (tab->ia < 0)
+			ft_exec(tab, RRA, -tab->ia, TRUE);
+		else
+			ft_exec(tab, RA, tab->ia, TRUE);
+		if (tab->ib < 0)
+			ft_exec(tab, RRB, -tab->ib, TRUE);
+		else
+			ft_exec(tab, RB, tab->ib, TRUE);
+		ft_exec(tab, PA, 1, TRUE);
 	}
+}
+
+void	ft_ps_allign(t_ps *tab)
+{
+	long	i;
+	long	ir;
+	t_snode	*curr;
+
+	i = 0;
+	curr = tab->a.head;
+	while(curr)
+	{
+		if (curr->index == 0)
+			break ;
+		++i;
+		curr = curr->next;
+	}
+	ir = ft_abs(i - tab->a.size);
+	if (ir < i)
+		ft_exec(tab, RRA, ir, TRUE);
+	else
+		ft_exec(tab, RA, i, TRUE);
 }
 
 int	main(int ac, char **av)
@@ -142,9 +164,10 @@ int	main(int ac, char **av)
 	ft_ps_mupdate(&tab.a, m, ft_ps_cmp_gt);
 	ft_ps_atob(&tab);
 
-	ft_ps_test_print(&tab);
+	//ft_ps_test_print(&tab);
 
 	ft_ps_btoa(&tab);
+	ft_ps_allign(&tab);
 	
 	ft_ps_test_print(&tab);
 

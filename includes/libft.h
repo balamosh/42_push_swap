@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 21:21:23 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/29 19:54:25 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/09 22:03:09 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
-int		ft_abs(int x);
+long	ft_abs(long x);
 int		ft_min(int a, int b);
 int		ft_max(int a, int b);
+int		ft_lsign(long x);
 
 #endif
