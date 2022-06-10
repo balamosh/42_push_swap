@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   markup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 05:49:18 by sotherys          #+#    #+#             */
-/*   Updated: 2022/01/31 09:56:02 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:36:55 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_bool	ft_ps_cmp_id(t_snode *lhs, t_snode *rhs)
-{
-	return (lhs->index - rhs->index == 1);
-}
-
-t_bool	ft_ps_cmp_gt(t_snode *lhs, t_snode *rhs)
-{
-	return (lhs->val > rhs->val);
-}
 
 size_t	ft_ps_mcount(t_stack *stack, \
 						t_snode *m, \
@@ -88,4 +78,20 @@ void	ft_ps_mupdate(t_stack *stack, \
 			curr->keep = FALSE;
 		curr = ft_stack_next(stack, curr);
 	}
+}
+
+void	ft_ps_markup(t_ps *tab, t_bool (*cmp)(t_snode*, t_snode *))
+{
+	t_snode	*m;
+	size_t	cnt;
+
+	m = ft_ps_mfind(&tab->a, cmp);
+	cnt = ft_ps_mcount(&tab->a, m, cmp);
+	ft_exec(tab, SA, 1, FALSE);
+	if (ft_ps_mcount(&tab->a, m, cmp) > cnt)
+	{
+		ft_exec(tab, SA, 1, FALSE);
+		ft_exec(tab, SA, 1, TRUE);
+	}
+	ft_ps_mupdate(&tab->a, m, cmp);
 }

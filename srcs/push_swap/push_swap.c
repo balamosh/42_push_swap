@@ -6,7 +6,7 @@
 /*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 03:03:32 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:58:06 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,12 @@ void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real)
 	{"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 	long		i;
 
-	(void)real;
-
 	i = 0;
 	while (i < n)
 	{
 		tab->exec[cmd](tab);
-		printf("%s\n", cmds[cmd]);
+		if (real)
+			printf("%s\n", cmds[cmd]);
 		++i;
 	}
 }

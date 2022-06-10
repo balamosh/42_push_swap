@@ -6,7 +6,7 @@
 /*   By: balamosh <balamosh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 03:06:13 by balamosh         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:38:12 by balamosh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,10 @@ void    ft_exec_rrb(t_ps *tab);
 void    ft_exec_rrr(t_ps *tab);
 
 void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real);
+
+void	ft_ps_markup(t_ps *tab, t_bool (*cmp)(t_snode*, t_snode *));
+void	ft_ps_atob(t_ps *tab);
+void	ft_ps_btoa(t_ps *tab);
+void	ft_ps_allign(t_ps *tab);
 
 #endif
