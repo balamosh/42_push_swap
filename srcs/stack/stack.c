@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:37 by sotherys          #+#    #+#             */
-/*   Updated: 2022/03/31 00:06:34 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 17:38:53 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_stack_free(t_stack *stack)
 		free(stack->head);
 		stack->head = tmp;
 	}
+	ft_stack_init(stack);
 }
 
 t_snode	*ft_stack_next(t_stack *stack, t_snode *node)

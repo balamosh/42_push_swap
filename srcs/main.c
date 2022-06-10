@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 17:22:24 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:02:03 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	main(int ac, char **av)
 	else
 		ft_ps_print_cmds(&tab_id);
 	//ft_ps_test_print(&tab_gt);
-	//ft_ps_test_print(&tab_id);
+	ft_ps_free(&tab_gt);
+	ft_ps_free(&tab_id);
 	return (0);
 }
 
