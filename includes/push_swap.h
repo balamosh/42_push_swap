@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 16:57:57 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/11 05:52:02 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void    ft_exec_rrr(t_ps *tab);
 
 void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real);
 
+t_bool	ft_ps_sorted(t_stack *stack);
 void	ft_ps_markup(t_ps *tab, t_bool (*cmp)(t_snode*, t_snode *));
 void	ft_ps_atob(t_ps *tab);
 void	ft_ps_btoa(t_ps *tab);

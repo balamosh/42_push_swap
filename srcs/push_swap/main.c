@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 18:02:03 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/11 08:11:14 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,9 @@ int	main(int ac, char **av)
 }
 
 /*
-pb
-pb
-ra
-pb
-ra
-pb
-pa
-pa
-rrr
-rra
-pa
-pa
+ARG=`shuf -i 0-2147483647 -n 500 | tr '\n' ' '`; ./push_swap $ARG | wc -l
 */
 
 /*
-ARG=`shuf -i 0-2147483647 -n 500 | tr '\n' ' '`; ./push_swap $ARG | wc -l
+ARG=`shuf -i 0-2147483647 -n 500 | tr '\n' ' '`; ANS=`./push_swap $ARG`; echo "$ANS" | wc -l; echo "$ANS" | ./checker $ARG
 */

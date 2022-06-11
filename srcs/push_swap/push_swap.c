@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 17:48:16 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/11 05:18:30 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_push_swap(t_ps *tab, \
 						char **av, \
 						t_bool (*mode)(t_snode*, t_snode *))
 {
-	(void)mode;
 	if (ac == 1)
 		return ;
 	ft_ps_init(tab);

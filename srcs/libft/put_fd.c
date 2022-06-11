@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 10:56:09 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 16:48:28 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/11 07:58:01 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-void	ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(const char *str, int fd)
 {
 	while (*str)
 		write(fd, str++, 1);
