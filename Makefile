@@ -40,6 +40,7 @@ SRCS_FILES	= push_swap/main.c				\
 			  stack/swap.c					
 
 B_SRCS_FILES = checker/main.c				\
+			   checker/checker.c			\
 			   hash/contains.c				\
 			   hash/hash.c					\
 			   hash/insert.c				\
@@ -90,7 +91,7 @@ B_DEPS		= $(B_OBJS:.o=.d)
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -MMD -g
 
-all: $(NAME)
+all: $(NAME) $(B_NAME)
 
 bonus: $(B_NAME)
 

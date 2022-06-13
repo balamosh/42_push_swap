@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/12 23:50:41 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/12 23:50:42 by sotherys         ###   ########.fr       */
+/*   Created: 2022/06/13 00:45:38 by sotherys          #+#    #+#             */
+/*   Updated: 2022/06/13 03:30:21 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-t_bool	ft_ps_sorted(t_stack *stack)
-{
-	t_snode	*curr;
+# include "libft.h"
+# include "gnl.h"
+# include "push_swap.h"
 
-	if (stack->size < 2)
-		return (TRUE);
-	curr = stack->head->next;
-	while (curr)
-	{
-		if (curr->val <= curr->prev->val)
-			return (FALSE);
-		curr = curr->next;
-	}
-	return (TRUE);
-}
+void	ft_checker(t_ps *tab, int ac, char **av);
+
+#endif

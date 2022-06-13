@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 09:29:19 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/11 05:52:02 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/13 03:51:22 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,17 @@ t_bool	ft_ps_cmp_gt(t_snode *lhs, t_snode *rhs);
 
 size_t	ft_ps_insert_pos(t_stack *stack, int val);
 
-void    ft_exec_sa(t_ps *tab);
-void    ft_exec_sb(t_ps *tab);
-void    ft_exec_ss(t_ps *tab);
-void    ft_exec_pa(t_ps *tab);
-void    ft_exec_pb(t_ps *tab);
-void    ft_exec_ra(t_ps *tab);
-void    ft_exec_rb(t_ps *tab);
-void    ft_exec_rr(t_ps *tab);
-void    ft_exec_rra(t_ps *tab);
-void    ft_exec_rrb(t_ps *tab);
-void    ft_exec_rrr(t_ps *tab);
+void	ft_exec_sa(t_ps *tab);
+void	ft_exec_sb(t_ps *tab);
+void	ft_exec_ss(t_ps *tab);
+void	ft_exec_pa(t_ps *tab);
+void	ft_exec_pb(t_ps *tab);
+void	ft_exec_ra(t_ps *tab);
+void	ft_exec_rb(t_ps *tab);
+void	ft_exec_rr(t_ps *tab);
+void	ft_exec_rra(t_ps *tab);
+void	ft_exec_rrb(t_ps *tab);
+void	ft_exec_rrr(t_ps *tab);
 
 void	ft_exec(t_ps *tab, t_ps_cmd cmd, long n, t_bool real);
 
@@ -82,6 +82,9 @@ void	ft_ps_btoa(t_ps *tab);
 void	ft_ps_allign(t_ps *tab);
 void	ft_ps_print_cmds(t_ps *tab);
 
-void	ft_push_swap(t_ps *tab, int ac, char **av, t_bool (*mode)(t_snode*, t_snode *));
+void	ft_push_swap(t_ps *tab, \
+					int ac, \
+					char **av, \
+					t_bool (*mode)(t_snode*, t_snode *));
 
 #endif

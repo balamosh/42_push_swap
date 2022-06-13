@@ -6,12 +6,12 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:07:26 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/11 04:58:50 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/13 03:50:11 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GNL_H
+# define GNL_H
 
 # include <unistd.h>
 # include <stdlib.h>
