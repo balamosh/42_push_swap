@@ -89,7 +89,7 @@ B_OBJS		= $(addprefix $(BUILD_DIR), $(B_OBJS_FILES))
 B_DEPS		= $(B_OBJS:.o=.d)
 
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra -MMD -g
+CFLAGS		= -Wall -Werror -Wextra -MMD
 
 all: $(NAME) $(B_NAME)
 

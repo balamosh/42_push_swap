@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 15:09:25 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 15:09:27 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/14 16:14:08 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,12 @@ void	ft_ps_btoa(t_ps *tab)
 	while (tab->b.size > 0)
 	{
 		ft_ps_btoa_find(tab);
-		if (tab->co_dir < 0)
-			ft_exec(tab, RRR, -tab->co_dir, TRUE);
-		else
-			ft_exec(tab, RR, tab->co_dir, TRUE);
-		if (tab->ia < 0)
-			ft_exec(tab, RRA, -tab->ia, TRUE);
-		else
-			ft_exec(tab, RA, tab->ia, TRUE);
-		if (tab->ib < 0)
-			ft_exec(tab, RRB, -tab->ib, TRUE);
-		else
-			ft_exec(tab, RB, tab->ib, TRUE);
+		ft_exec(tab, RR * (tab->co_dir >= 0) + RRR * (tab->co_dir < 0), \
+				ft_abs(tab->co_dir), TRUE);
+		ft_exec(tab, RA * (tab->ia >= 0) + RRA * (tab->ia < 0), \
+				ft_abs(tab->ia), TRUE);
+		ft_exec(tab, RB * (tab->ib >= 0) + RRB * (tab->ib < 0), \
+				ft_abs(tab->ib), TRUE);
 		ft_exec(tab, PA, 1, TRUE);
 	}
 }

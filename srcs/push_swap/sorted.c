@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 23:50:41 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/12 23:50:42 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:31:25 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ t_bool	ft_ps_sorted(t_stack *stack)
 {
 	t_snode	*curr;
 
-	if (stack->size < 2)
-		return (TRUE);
-	curr = stack->head->next;
-	while (curr)
+	curr = stack->head;
+	while (curr && curr->next)
 	{
-		if (curr->val <= curr->prev->val)
+		if (curr->val >= curr->next->val)
 			return (FALSE);
 		curr = curr->next;
 	}

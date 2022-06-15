@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 21:36:32 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/11 05:18:30 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/14 16:15:16 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ void	ft_push_swap(t_ps *tab, \
 		return ;
 	ft_ps_init(tab);
 	if (!ft_ps_parse(tab, ac - 1, av + 1))
+	{
 		tab->error = TRUE;
+		return ;
+	}
 	ft_ps_set_index(&tab->a);
-	if (!tab->error)
-		ft_ps_markup(tab, mode);
-	if (!tab->error)
-		ft_ps_atob(tab);
+	ft_ps_markup(tab, mode);
+	ft_ps_atob(tab);
 	ft_ps_btoa(tab);
 	ft_ps_allign(tab);
 }
