@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:45:43 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/15 07:14:01 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/15 07:27:29 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ int	ft_str_find(const char **strs, const char *str)
 	return (-1);
 }
 
+static void	ft_checker_print(t_ps *tab)
+{
+	if (tab->error)
+		ft_putstr_fd("Error\n", 2);
+	else if (ft_ps_sorted(&tab->a) && tab->b.size == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
+}
+
 void	ft_checker(t_ps *tab, int ac, char **av)
 {
 	char				*line;
@@ -63,4 +73,6 @@ void	ft_checker(t_ps *tab, int ac, char **av)
 		else
 			tab->error = TRUE;
 	}
+	ft_checker_print(tab);
+	ft_ps_free(tab);
 }
