@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:10:27 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/10 18:02:26 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:20:58 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ t_bool	ft_ps_parse(t_ps *tab, int ac, char **av)
 	int		i;
 	long	n;
 
-	ft_hash_init(&set);
+	if (!ft_hash_init(&set))
+		return (FALSE);
 	i = 0;
 	flag = TRUE;
 	while (i < ac && flag)
