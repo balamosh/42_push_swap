@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 00:45:43 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/15 07:27:29 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/28 10:48:39 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	ft_checker(t_ps *tab, int ac, char **av)
 	{"sa\n", "sb\n", "ss\n", "pa\n", "pb\n"\
 	, "ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n", NULL};
 
+	if (ac == 1)
+		return ;
 	ft_ps_init(tab);
 	if (!ft_ps_parse(tab, ac - 1, av + 1))
 		tab->error = TRUE;

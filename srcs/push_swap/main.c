@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:37:22 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/13 03:47:19 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/28 10:47:43 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int ac, char **av)
 	t_ps	tab_gt;
 	t_ps	tab_id;
 
+	if (ac == 1)
+		return (0);
 	ft_push_swap(&tab_gt, ac, av, ft_ps_cmp_gt);
 	ft_push_swap(&tab_id, ac, av, ft_ps_cmp_id);
 	if (tab_gt.error || tab_id.error)

@@ -6,7 +6,7 @@
 /*   By: sotherys <sotherys@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:10:27 by sotherys          #+#    #+#             */
-/*   Updated: 2022/06/24 11:20:58 by sotherys         ###   ########.fr       */
+/*   Updated: 2022/06/28 10:53:49 by sotherys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static t_bool	ft_isnumber(char *str)
 {
 	if (*str == '-' || *str == '+')
 		str++;
+	if ('\0' == *str)
+		return (FALSE);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')
